@@ -1,0 +1,27 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	Sportbarinn.is - Site Administration
+{% endblock %}
+
+{% block pagetitle %}
+	Sportbarinn.is - Links
+{% endblock %}
+
+{% block content %}
+	<form action="/admin/games/save" enctype="multipart/form-data" method="post">
+		{{metaform}}
+		<p>
+			<input type="submit" value="Vista" class="submitbutton" />
+		</p>
+		<p><a href="#" onclick="loadCalendar(); return false;">CAL</a></p>
+	</form>
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		{% for game in left_items %}
+			<li><a href="/admin/games/{{game.key}}">{{ game.title }}-{{ game.game_date }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

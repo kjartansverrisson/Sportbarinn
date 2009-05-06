@@ -1,0 +1,42 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	Sportbarinn.is - Site Administration
+{% endblock %}
+
+{% block pagetitle %}
+	Sportbarinn.is - Links
+{% endblock %}
+
+{% block content %}
+	<form action="/admin/songs/save" enctype="multipart/form-data" method="post">
+		<p>
+			<label for="id_title">Titill:</label>
+			<input type="text" name="title" id="id_title" value="" />
+		<p>
+		<p>
+			<label for="id_performer">Flytjandi:</label>
+			<input type="text" name="performer" id="id_performer" value="" />
+		<p>
+		<p>
+			<label for="id_number">Númer 1:</label>
+			<input type="text" name="number" id="id_number" value="" />
+		<p>
+		<p>
+			<label for="id_number">Númer 2:</label>
+			<input type="text" name="number1" id="id_number1" value="" />
+		<p>
+		<p>
+			<input type="submit" value="Vista" class="submitbutton" />
+		</p>
+	</form>
+	
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		{% for song in left_items %}
+			<li><a href="/admin/songs/key/{{song.key}}">{{ song.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

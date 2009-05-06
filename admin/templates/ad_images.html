@@ -1,0 +1,29 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	Sportbarinn.is - Site Administration
+{% endblock %}
+
+{% block pagetitle %}
+	Sportbarinn.is - Links
+{% endblock %}
+
+{% block content %}
+	<form action="/admin/images/save" enctype="multipart/form-data" method="post">
+		{{metaform}}
+		<p>
+			<label for="imagedata">Mynd:</label>
+			<input type="file" name="imagedata" id="imagedata" /></p>
+		<p>
+			<input type="submit" value="Vista" class="submitbutton" />
+		</p>
+	</form>
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		{% for link in links %}
+			<li>{{ link.title }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	- {{page_data}}
+{% endblock %}
+
+{% block content %}
+	<h2>{{page_data}}</h2>
+	{% regroup game_data by game_date as games %}
+	{% for game_date in games %}
+		<table class="tabledata">
+			<thead>
+				<tr>
+					<th class="col1">Beinar útsendingar {{game_date.grouper|date:"D d. M Y"}}</th>
+					<th class="col2">Tími</th>
+					<th class="col3">Í beinni</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in game_date.list %}
+					<tr class="{% cycle odd,even %}">
+						<td class="col1">{{ item.title }}</td>
+						<td class="col2">{{ item.game_time|time:"H:i" }}</td>
+						<td class="col3">{% ifequal item.is_live 1 %}Já{% else %}Nei{% endifequal %}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endfor %}
+{% endblock %}

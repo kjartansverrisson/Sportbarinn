@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<!--link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/reset-fonts-grids/reset-fonts-grids.css"> 
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css"--!> 
+	
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/base/base-min.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/editor/assets/skins/sam/simpleeditor.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/calendar/assets/skins/sam/calendar.css">
+	
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+
+	<!-- Utility Dependencies -->
+	<!-- Dependencies -->
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/element/element-beta-min.js"></script> 
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/container/container_core-min.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/editor/simpleeditor-beta-min.js"></script>
+	
+	<!-- Source file -->
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/calendar/calendar-min.js"></script>
+	
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/scripts.js"></script>
+
+	<title>
+	{% block title %}
+	Page title
+	{% endblock %}
+	</title>
+	
+</head>
+
+<body class="yui-skin-sam">
+	<div id="cal1Container"></div>
+	<div id="doc4" class="yui-t3">
+		<div id="hd" class="header">
+			<h1>
+				{% block pagetitle %}
+				Page title
+				{% endblock %}
+			</h1>
+			<p>
+				{{ usergreeting }}
+			</p>
+		</div>
+		<div id="navigation">
+			<ul>
+				<li><a href="/admin/pages" title="">Síður</a></li>
+				<li><a href="/admin/links" title="">Tenglar</a></li>
+				<li><a href="/admin/navigation" title="">Valmynd</a></li>	
+				<li><a href="/admin/games" title="">Beinar útsendingar</a></li>			
+				<li><a href="/admin/songs" title="">Kareoke</a></li>	
+			</ul>
+		</div>
+		<div id="bd" class="body">
+			<div id="yui-main">
+				<div class="yui-b content">
+					<div class="yui-g">
+						{% block content %}
+						Page content
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+
+			<div class="yui-b navigation">
+				{% block sidebar %}
+				Navigation for view
+				{% endblock %}
+			</div>
+
+		</div>
+		<div id="ft" class="footer">
+			<p>Sportbarinn / Ölver -  Addressa, símanúmer og email</p>
+		</div>
+	</div>
+</body>
+</html>

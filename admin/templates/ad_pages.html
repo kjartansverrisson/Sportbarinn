@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	Sportbarinn.is - Site Administration
+{% endblock %}
+
+{% block pagetitle %}
+	Sportbarinn.is - Pages
+{% endblock %}
+
+{% block content %}
+	<form action="/admin/pages/save" enctype="multipart/form-data" method="post">
+		<input type="hidden" name="id" value="{{current_key}}">
+		{{metaform}}
+		<p><input type="submit" value="Vista síðu" class="submitbutton" /></p>
+	</form>
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		{% for page in left_items %}
+			<li><a href="/admin/pages/{{page.key}}" title="{{page.title}}">{{ page.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

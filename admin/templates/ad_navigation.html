@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Sportbarinn.is - Site Administration
+{% endblock %}
+
+{% block pagetitle %}
+	Sportbarinn.is - Navigation
+{% endblock %}
+
+{% block content %}
+	<form action="/admin/navigation/save" enctype="multipart/form-data" method="post">
+		<input type="hidden" name="id" value="{{currentid}}">
+		{{metaform}}
+		<p id="pageselector">
+			<label for="reference">Síða:</label>
+			<select id="reference" name="reference">
+				<option value="">---------</option>
+				{% for page in pages %}
+					{% ifequal current_key page.key %}
+					<option selected="true" value="{{page.key}}">{{page.title}}</option>
+					{% else %}
+					<option value="{{page.key}}">{{page.title}}</option>
+					{% endifequal %}
+				{% endfor %}
+			</select>
+		</p>
+		<p><input type="submit" value="Vista" class="submitbutton" /></p>
+	</form>
+{% endblock %}
+
+{% block sidebar %}
+	<ul>
+		{% for nav in left_items %}
+			<li><a href="/admin/navigation/{{nav.key}}">{{ nav.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	- {{page_data.title}}
+{% endblock %}
+
+{% block content %} 
+	<h2>Hafa samband</h2>
+	<div class="errors">{{errors}}</div>
+	<form d="contact_form">
+		{{form}}
+		<p><input type="submit" value="Senda" class="submitbutton"></p>
+	</form>
+{% endblock %}

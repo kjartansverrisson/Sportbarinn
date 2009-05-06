@@ -1,0 +1,28 @@
+application: sportbarinndev
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+  
+- url: /js
+  static_dir: js
+    
+- url: /css
+  static_dir: css
+
+- url: /images
+  static_dir: images
+      
+- url: /admin((/*)|(/?.*)|(/?.*/?.*))
+  script: admin/admin.py
+  login: admin
+  
+- url: /(samband)?|/(games)?|(links)?|((page)/.*)?
+  script: index.py  
+  
+- url: /.*
+  script: not_found.py  
+

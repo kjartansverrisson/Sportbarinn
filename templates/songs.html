@@ -1,0 +1,36 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+	- {{page_data}}
+{% endblock %}
+
+{% block content %}
+	<h2>{{page_data}}</h2>
+	<form action="/kareoke/search" method="get">
+		<p>
+			<input type="text" name="filter" id="filter" value="" />
+			<input type="submit" name="submit" id="submit" value="Leita" class="searchbutton" />
+		</p>
+	</form>
+	<table class="tabledata songs">
+		<thead>
+			<tr>
+				<th class="col1">Titill</th>
+				<th class="col2">Flytjandi</th>
+				<th class="col3">Númer</th>
+				<th class="col4">Númer</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for song in song_data %}
+				<tr class="{% cycle odd,even %}">
+					<td class="col1">{{ song.title }}</td>
+					<td class="col2">{{ song.performer }}</td>
+					<td class="col3">{{ song.number }}</td>
+					<td class="col4">{{ song.number1 }}</td>					
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+		
+{% endblock %}

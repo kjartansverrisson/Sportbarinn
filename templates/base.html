@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>
+		Sportbarinn.is
+		{% block title %}
+			TITLE BE HERE
+		{% endblock %}
+	</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/reset-fonts-grids/reset-fonts-grids.css"> 
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css"> 
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css"> 
+	
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	
+</head>
+<body>
+	
+<div id="doc4" class="yui-t2"> 
+	<div id="hd" class="header">
+		<h1><a href="/">Sportbarinn.is</a></h1>
+	</div>
+	<div id="splash">
+
+	</div>
+	<div id="navigation">
+		<ul>
+			{% for nav in navigation %}
+				{% if forloop.first %}
+					<li class="first">
+				{% else %}
+					<li>
+				{% endif %}
+				{% ifequal nav.model 'page' %}
+					<a href="/{{nav.model}}/{{nav.alias}}" title="{{nav.title}}">{{ nav.title }}</a></li>
+				{% else %}
+					<a href="/{{nav.model}}" title="{{nav.title}}">{{ nav.title }}</a></li>
+				{% endifequal %}
+			{% endfor %}
+		</ul>
+	</div>
+	
+	<div id="bd" class="body"> 
+		<div id="yui-main"> 
+
+			<div class="yui-b">
+				<div class="yui-ge"> 
+					<div class="yui-u first"> 
+						{% block content %}
+						Main Page Content Here
+						{% endblock %}
+					</div> 
+					<div class="yui-u"> 
+						<div class="graybox">
+							<div class="boxhd"></div>
+							<div class="boxcontent">
+								Þetta er innihald
+							</div>
+							<div class="boxfooter"></div>							
+						</div>
+					</div> 
+				</div> 
+			</div>
+
+		</div> 
+		<div class="yui-b">
+			<div class="redbox">
+				<div class="boxhd"><h3>Þetta er box</h3></div>
+				<div class="boxcontent">
+					Þetta er innihald
+				</div>
+			</div>
+		</div> 
+	</div> 
+	<div id="ft" class="footer">
+		<p>Ölver Glæsibæ - Álfheimum 74 - 104 Reykjavík - Sími 5336220 - <a href="mailto:sportbarinn@sportbarinn.is">sportbarinn@sportbarinn.is</a></p>
+	</div>
+</div>	
+
+</body>
+</html>
